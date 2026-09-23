@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House M.D. | Galería</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+    <header class="encabezado">
+        <div class="encabezado__barra">
+            <a href="index.html" class="encabezado__logo">
+                <img src="img/logo.svg" alt="Logo House M.D.">
+            </a>
+
+            <button class="encabezado__hamburguesa" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="encabezado__nav">
+                <ul class="encabezado__lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="menu-desplegable">
+                        <a href="temporadas.html" aria-haspopup="true" aria-expanded="false">Temporadas <span class="flecha-menu">▾</span></a>
+                        <ul class="submenu" aria-label="Temporadas">
+                            <li><a href="temporadas.html?temporada=1">Temporada 1</a></li>
+                            <li><a href="temporadas.html?temporada=2">Temporada 2</a></li>
+                            <li><a href="temporadas.html?temporada=3">Temporada 3</a></li>
+                            <li><a href="temporadas.html?temporada=4">Temporada 4</a></li>
+                            <li><a href="temporadas.html?temporada=5">Temporada 5</a></li>
+                            <li><a href="temporadas.html?temporada=6">Temporada 6</a></li>
+                            <li><a href="temporadas.html?temporada=7">Temporada 7</a></li>
+                            <li><a href="temporadas.html?temporada=8">Temporada 8</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="galeria.html" class="activo">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ==================================================
+         CABECERA DE PÁGINA
+    ================================================== -->
+    <section class="pagina-cabecera pagina-cabecera--galeria">
+        <div class="contenedor">
+            <span class="etiqueta-mono">ARCHIVO DE CASOS</span>
+            <h1 class="titulo-seccion" style="margin-top: 12px;">Galería</h1>
+            <p class="intro-seccion">
+                Explorá las imágenes del archivo y seleccioná cualquiera para verla en
+                grande sin salir de la galería.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ==================================================
+         GALERÍA INTERACTIVA
+    ================================================== -->
+    <section class="seccion contenedor">
+        <div class="galeria__encabezado">
+            <span class="etiqueta-mono">ARCHIVO VISUAL</span>
+            <p>Seleccioná cualquier imagen para abrirla en grande. Las miniaturas permanecen visibles detrás y podés recorrer la galería con las flechas o el teclado.</p>
+        </div>
+        <div class="galeria__grid">
+            <button class="galeria__item" type="button" data-imagen="img/galeria/radio.jpg" data-titulo="Estudio de imágenes" data-descripcion="Radiografías y estudios de imagen forman parte de la investigación de un caso.">
+                <img src="img/galeria/radio.jpg" alt="Estudio de imágenes" loading="lazy">
+                <span class="galeria__overlay"><span>Estudio de imágenes</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/labo.jpg" data-titulo="Laboratorio clínico" data-descripcion="Los análisis ayudan al equipo a confirmar o descartar distintas hipótesis.">
+                <img src="img/galeria/labo.jpg" alt="Laboratorio clínico" loading="lazy">
+                <span class="galeria__overlay"><span>Laboratorio clínico</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/monitorCardiaco.jpg" data-titulo="Monitoreo cardíaco" data-descripcion="El seguimiento cardíaco permite observar la evolución de pacientes internados.">
+                <img src="img/galeria/monitorCardiaco.jpg" alt="Monitoreo cardíaco" loading="lazy">
+                <span class="galeria__overlay"><span>Monitoreo cardíaco</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/farma.jpg" data-titulo="Tratamiento farmacológico" data-descripcion="La medicación es una herramienta más dentro del proceso de diagnóstico.">
+                <img src="img/galeria/farma.jpg" alt="Tratamiento farmacológico" loading="lazy">
+                <span class="galeria__overlay"><span>Tratamiento farmacológico</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/intern.jpg" data-titulo="Internación y suero" data-descripcion="La observación hospitalaria acompaña muchos de los casos de la serie.">
+                <img src="img/galeria/intern.jpg" alt="Internación y suero" loading="lazy">
+                <span class="galeria__overlay"><span>Internación y suero</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/historia.jpg" data-titulo="Historia clínica" data-descripcion="Los antecedentes y estudios quedan reunidos en el expediente del paciente.">
+                <img src="img/galeria/historia.jpg" alt="Historia clínica" loading="lazy">
+                <span class="galeria__overlay"><span>Historia clínica</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/equipoB.jpg" data-titulo="Equipo b" data-descripcion="Equipo de apoyo">
+                <img src="img/galeria/equipoB.jpg" alt="Case File 01" loading="lazy">
+                <span class="galeria__overlay"><span>Equipo b</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/equipoCompleto.jpg" data-titulo="Equipo completo" data-descripcion="El equipo completo se reune">
+                <img src="img/galeria/equipoCompleto.jpg" alt="Case File 02" loading="lazy">
+                <span class="galeria__overlay"><span>Equipo Completo</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/Operacion.jpg" data-titulo="Operacion" data-descripcion="Procedimiento quirúrgico ">
+                <img src="img/galeria/Operacion.jpg" alt="Case File 03" loading="lazy">
+                <span class="galeria__overlay"><span>Operacion</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/Amigos.jpg" data-titulo="Amigos" data-descripcion="House y james wilson , amigos inseparables">
+                <img src="img/galeria/Amigos.jpg" alt="Case File 04" loading="lazy">
+                <span class="galeria__overlay"><span>Amigos</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/DocMed.jpg" data-titulo="Medico brillante" data-descripcion="Dr.house un medico brillante">
+                <img src="img/galeria/DocMed.jpg" alt="Case File 05" loading="lazy">
+                <span class="galeria__overlay"><span>Medico brillante</span><small>VER EN GRANDE</small></span>
+            </button>
+            <button class="galeria__item" type="button" data-imagen="img/galeria/Adios.jpg" data-titulo="Adios" data-descripcion="Fin de house">
+                <img src="img/galeria/Adios.jpg" alt="Case File 06" loading="lazy">
+                <span class="galeria__overlay"><span>Adios</span><small>VER EN GRANDE</small></span>
+            </button>
+        </div>
+    </section>
+
+    <div class="galeria-modal" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+        <button class="galeria-modal__cerrar" type="button" aria-label="Cerrar">×</button>
+        <button class="galeria-modal__anterior" type="button" aria-label="Imagen anterior">‹</button>
+        <div class="galeria-modal__contenido">
+            <img class="galeria-modal__imagen" src="img/galeria/radiografia.jpg" alt="">
+            <div class="galeria-modal__info">
+                <span class="etiqueta-mono">CASE FILE</span>
+                <h2 class="galeria-modal__titulo">Estudio de imágenes</h2>
+                <p class="galeria-modal__texto"></p>
+            </div>
+        </div>
+        <button class="galeria-modal__siguiente" type="button" aria-label="Imagen siguiente">›</button>
+    </div>
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+    <footer class="pie">
+        <div class="contenedor pie__contenido">
+            <div class="pie__columna">
+                <h4 class="pie__titulo">MAPA DEL SITIO</h4>
+                <ul class="pie__lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="temporadas.html">Temporadas</a></li>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="pie__columna">
+                <h4 class="pie__titulo">SOBRE LA SERIE</h4>
+                <p>
+                    House M.D. narra el trabajo del Dr. Gregory House y su
+                    equipo de medicina diagnóstica en el Princeton-Plainsboro
+                    Teaching Hospital, un hospital ficticio en Princeton,
+                    Nueva Jersey.
+                </p>
+            </div>
+
+            <div class="pie__columna">
+                <h4 class="pie__titulo">REDES</h4>
+                <div class="pie__redes">
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.3L18.9 2Z"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.9-3.4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.5-3.2h-3.2V8.7c0-.9.3-1.5 1.7-1.5h1.6V4.2C15.8 4 14.7 4 13.5 4c-2.6 0-4.4 1.6-4.4 4.4v2.4H6.5V14h2.6v8h4.4Z"/></svg></a>
+                    <a href="https://www.youtube.com/results?search_query=House+M.D." target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.1-.4-4.6a2.9 2.9 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.4a2.9 2.9 0 0 0-2 2C2 8.9 2 12 2 12s0 3.1.4 4.6a2.9 2.9 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.4a2.9 2.9 0 0 0 2-2C22 15.1 22 12 22 12ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie__inferior">
+            Proyecto académico sin fines comerciales — House M.D. pertenece a sus respectivos creadores.
+        </div>
+    </footer>
+
+    <script src="js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,1726 @@
+/* ==================================================
+   HOUSE M.D. - HOJA DE ESTILOS PRINCIPAL
+   Estructura del archivo:
+   1. Variables y reset
+   2. Utilidades generales
+   3. Header / Menú
+   4. Footer
+   5. Home (Hero, estadísticas, tarjetas, diagnóstico)
+   6. Temporadas (carrusel)
+   7. Personajes (tarjetas flip)
+   8. Galería (timeline de case files)
+   9. Contacto (formulario + mapa)
+   10. Media Queries (Responsive)
+================================================== */
+
+
+/* ==================================================
+   1. VARIABLES Y RESET
+================================================== */
+
+:root {
+    /* Paleta de colores */
+    --navy-950: #060e16;
+    --petrol-800: #10293b;
+    --petrol-700: #1c4560;
+    --line-700: #2c5771;
+    --grey-500: #5f7180;
+    --paper-100: #eef2f4;
+    --alert-600: #b6382f;
+    --alert-700: #8f2b24;
+
+    /* Tipografías */
+    --font-display: 'Bahnschrift', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: Georgia, 'Times New Roman', serif;
+    --font-mono: Consolas, 'Courier New', monospace;
+
+    /* Espaciados */
+    --espacio-s: 12px;
+    --espacio-m: 24px;
+    --espacio-l: 48px;
+    --espacio-xl: 88px;
+
+    /* Otros */
+    --radio-borde: 4px;
+    --ancho-maximo: 1180px;
+    --sombra-panel: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--navy-950);
+    color: var(--paper-100);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.Fondo-Index{
+    max-width: 100%
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: var(--font-display);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.3px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--alert-600);
+    outline-offset: 3px;
+}
+
+
+/* ==================================================
+   2. UTILIDADES GENERALES
+================================================== */
+
+.contenedor {
+    width: 100%;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 0 var(--espacio-m);
+}
+
+.seccion {
+    padding: var(--espacio-xl) 0;
+}
+
+.titulo-seccion {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    color: var(--paper-100);
+    margin-bottom: var(--espacio-s);
+}
+
+.intro-seccion {
+    max-width: 640px;
+    color: var(--grey-500);
+    margin-bottom: var(--espacio-l);
+}
+
+.etiqueta-mono {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--alert-600);
+   
+    padding: 4px 10px;
+    border-radius: var(--radio-borde);
+    display: inline-block;
+}
+
+.boton {
+    font-family: var(--font-mono);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--line-700);
+    color: var(--paper-100);
+    background-color: var(--petrol-800);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.boton:hover {
+    border-color: var(--alert-600);
+    background-color: var(--petrol-700);
+}
+
+.boton-relleno {
+    background-color: var(--alert-600);
+    border-color: var(--alert-600);
+}
+
+.boton-relleno:hover {
+    background-color: var(--alert-700);
+    border-color: var(--alert-700);
+}
+
+
+/* ==================================================
+   3. HEADER / MENÚ
+================================================== */
+
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--petrol-800);
+    border-bottom: 3px solid var(--alert-600);
+}
+
+.encabezado__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px var(--espacio-m);
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+}
+
+.encabezado__logo img {
+    height: 40px;
+}
+
+.encabezado__nav {
+    display: flex;
+    align-items: center;
+}
+
+.encabezado__lista {
+    display: flex;
+    gap: var(--espacio-m);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+}
+
+.encabezado__lista a {
+    position: relative;
+    padding: 6px 2px;
+    color: var(--paper-100);
+}
+
+.encabezado__lista a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0;
+    background-color: var(--alert-600);
+    transition: width 0.2s ease;
+}
+
+.encabezado__lista a:hover::after,
+.encabezado__lista a.activo::after {
+    width: 100%;
+}
+
+.encabezado__hamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 30px;
+}
+
+.encabezado__hamburguesa span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--paper-100);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.encabezado__hamburguesa.activo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.encabezado__hamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+}
+
+.encabezado__hamburguesa.activo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==================================================
+   4. FOOTER
+================================================== */
+
+.pie {
+    background-color: var(--petrol-800);
+    border-top: 1px solid var(--line-700);
+    margin-top: var(--espacio-xl);
+}
+
+.pie__contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--espacio-l);
+    padding: var(--espacio-l) 0;
+}
+
+.pie__columna {
+    flex: 1 1 220px;
+}
+
+.pie__titulo {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--alert-600);
+    margin-bottom: var(--espacio-s);
+}
+
+.pie__columna p {
+    color: var(--grey-500);
+    font-size: 0.92rem;
+}
+
+.pie__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pie__lista a {
+    color: var(--paper-100);
+    font-size: 0.92rem;
+}
+
+.pie__lista a:hover {
+    color: var(--alert-600);
+}
+
+.pie__redes {
+    display: flex;
+    gap: 12px;
+    margin-top: var(--espacio-s);
+}
+
+.pie__redes a {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line-700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pie__redes a:hover {
+    border-color: var(--alert-600);
+    background-color: var(--petrol-700);
+}
+
+.pie__redes svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--paper-100);
+}
+
+.pie__inferior {
+    border-top: 1px solid var(--line-700);
+    padding: var(--espacio-s) 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--grey-500);
+}
+
+
+/* ==================================================
+   5. HOME
+================================================== */
+
+.hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    background-image: url("../img/fondo-home.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(6, 14, 22, 0.94) 0%, rgba(6, 14, 22, 0.78) 45%, rgba(6, 14, 22, 0.55) 100%);
+}
+
+.hero__contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 100%/*640px*/;
+    padding: var(--espacio-l) var(--espacio-m);
+}
+
+.hero__expediente {
+    margin-bottom: var(--espacio-m);
+}
+
+.hero__titulo {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    margin: var(--espacio-s) 0;
+}
+
+.hero__titulo span {
+    color: var(--alert-600);
+}
+
+.hero__texto {
+    color: var(--paper-100);
+    opacity: 0.88;
+    margin-bottom: var(--espacio-m);
+    max-width: 520px;
+}
+
+.hero__acciones {
+    display: flex;
+    gap: var(--espacio-s);
+    flex-wrap: wrap;
+}
+
+.estadisticas {
+    background-color: var(--petrol-800);
+    border-top: 1px solid var(--line-700);
+    border-bottom: 1px solid var(--line-700);
+}
+
+.estadisticas__lista {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.estadisticas__item {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: var(--espacio-m);
+    border-right: 1px solid var(--line-700);
+}
+
+.estadisticas__item:last-child {
+    border-right: none;
+}
+
+.estadisticas__numero {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--alert-600);
+    display: block;
+}
+
+.estadisticas__etiqueta {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    letter-spacing: 0.5px;
+}
+
+.tarjetas-navegacion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-m);
+}
+
+.tarjeta-nav {
+    background-color: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta-nav:hover {
+    transform: translateY(-4px);
+    border-color: var(--alert-600);
+}
+
+.tarjeta-nav__ficha {
+    background-color: var(--petrol-700);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    color: var(--alert-600);
+    padding: 8px var(--espacio-m);
+}
+
+.tarjeta-nav__cuerpo {
+    padding: var(--espacio-m);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.tarjeta-nav__cuerpo h3 {
+    font-size: 1.3rem;
+}
+
+.tarjeta-nav__cuerpo p {
+    color: var(--grey-500);
+    font-size: 0.92rem;
+    flex: 1;
+}
+
+.tarjeta-nav__enlace {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--paper-100);
+}
+
+.tarjeta-nav:hover .tarjeta-nav__enlace {
+    color: var(--alert-600);
+}
+
+/* ==================================================
+   6. TEMPORADAS
+================================================== */
+
+.pagina-cabecera {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3.8rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 4.5rem);
+    border-bottom: 1px solid var(--line-700);
+    background-color: var(--petrol-800);
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
+}
+
+.pagina-cabecera::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.17;
+    transform: scale(1.03);
+}
+
+.pagina-cabecera::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(6, 14, 22, 0.97) 0%, rgba(6, 14, 22, 0.90) 45%, rgba(10, 25, 30, 0.50) 100%);
+}
+
+.pagina-cabecera .contenedor {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fondos temáticos de cada sección */
+.pagina-cabecera--temporadas::before {
+    background-image: url("../img/galeria/intern.jpg");
+    background-position: center 42%;
+}
+
+.pagina-cabecera--personajes::before {
+    background-image: url("../img/DoctorFondo.jpg");
+    background-position: center 35%;
+}
+
+.pagina-cabecera--galeria::before {
+    background-image: url("../img/galeria/radio.jpg");
+    background-position: center 42%;
+}
+
+.pagina-cabecera--contacto::before {
+    background-image: url("../img/galeria/intern.jpg");
+    background-position: center 55%;
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-m);
+}
+
+.carrusel__flecha {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--line-700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--paper-100);
+    background-color: var(--petrol-800);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.carrusel__flecha:hover {
+    border-color: var(--alert-600);
+    color: var(--alert-600);
+}
+
+.carrusel__viewport {
+    flex: 1;
+    overflow: hidden;
+}
+
+.ficha-temporada {
+    background-color: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-l);
+}
+
+.ficha-temporada__cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--espacio-s);
+    border-bottom: 1px solid var(--line-700);
+    padding-bottom: var(--espacio-m);
+    margin-bottom: var(--espacio-m);
+}
+
+.ficha-temporada__titulo {
+    font-size: 1.9rem;
+}
+
+.ficha-temporada__meta {
+    display: flex;
+    gap: var(--espacio-m);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--grey-500);
+}
+
+.ficha-temporada__meta strong {
+    color: var(--paper-100);
+}
+
+.ficha-temporada__aviso {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--alert-600);
+    border-left: 3px solid var(--alert-600);
+    padding-left: 10px;
+    margin-bottom: var(--espacio-m);
+}
+
+.episodios-destacados {
+    display: flex;
+    gap: var(--espacio-m);
+    flex-wrap: wrap;
+}
+
+.episodio {
+    flex: 1 1 220px;
+    background-color: var(--navy-950);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-m);
+}
+
+.episodio__numero {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--alert-600);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.episodio__titulo {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.episodio__descripcion {
+    font-size: 0.88rem;
+    color: var(--grey-500);
+}
+
+.carrusel__indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--espacio-m);
+}
+
+.carrusel__punto {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--line-700);
+    border: none;
+    padding: 0;
+}
+
+.carrusel__punto.activo {
+    background-color: var(--alert-600);
+}
+
+
+/* ==================================================
+   7. PERSONAJES
+================================================== */
+
+.grilla-personajes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espacio-m);
+}
+
+.tarjeta-flip {
+    perspective: 1200px;
+    height: 360px;
+}
+
+.tarjeta-flip__interior {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.tarjeta-flip.flipped .tarjeta-flip__interior {
+    transform: rotateY(180deg);
+}
+
+.tarjeta-flip__cara {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: var(--radio-borde);
+    border: 1px solid var(--line-700);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-flip__frente {
+    background-color: var(--petrol-800);
+}
+
+
+
+.tarjeta-flip__frente img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    border-bottom: 1px solid var(--line-700);
+}
+
+.tarjeta-flip__frente-info {
+    padding: var(--espacio-s) var(--espacio-m);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjeta-flip__frente-info h3 {
+    font-size: 1.05rem;
+}
+
+.tarjeta-flip__cta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    color: var(--alert-600);
+    border: 1px solid var(--alert-600);
+    border-radius: var(--radio-borde);
+    padding: 6px 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tarjeta-flip__reverso {
+    background-color: var(--navy-950);
+    transform: rotateY(180deg);
+    padding: var(--espacio-m);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tarjeta-flip__reverso-encabezado {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    color: var(--alert-600);
+    border-bottom: 1px solid var(--line-700);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.tarjeta-flip__campo {
+    font-size: 0.85rem;
+}
+
+.tarjeta-flip__campo span {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--grey-500);
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.tarjeta-flip__nota {
+    font-size: 0.82rem;
+    color: var(--grey-500);
+    margin-top: auto;
+}
+
+
+/* ==================================================
+   8. GALERÍA
+================================================== */
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: var(--espacio-l);
+}
+
+.timeline__item {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    color: var(--grey-500);
+    background-color: var(--petrol-800);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.timeline__item:hover {
+    color: var(--paper-100);
+}
+
+.timeline__item.activo {
+    color: var(--paper-100);
+    border-color: var(--alert-600);
+    background-color: var(--petrol-700);
+}
+
+.visor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-l);
+    background-color: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-l);
+}
+
+.visor__imagen {
+    flex: 1 1 280px;
+    background-color: var(--navy-950);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-s);
+}
+
+.visor__info {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.visor__id {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--alert-600);
+    margin-bottom: 8px;
+}
+
+.visor__titulo {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.visor__descripcion {
+    color: var(--grey-500);
+}
+
+
+/* ==================================================
+   9. CONTACTO
+================================================== */
+
+.contacto__grilla {
+    display: flex;
+    gap: var(--espacio-l);
+    flex-wrap: wrap;
+}
+
+.contacto__formulario,
+.contacto__info {
+    flex: 1 1 380px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-m);
+    background-color: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-l);
+}
+
+.formulario__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formulario__grupo label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--grey-500);
+}
+
+.formulario__grupo input,
+.formulario__grupo textarea {
+    background-color: var(--navy-950);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: 12px;
+    color: var(--paper-100);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    resize: vertical;
+}
+
+.formulario__grupo input:focus,
+.formulario__grupo textarea:focus {
+    outline: none;
+    border-color: var(--alert-600);
+}
+
+.formulario__error {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--alert-600);
+    min-height: 14px;
+}
+
+.formulario__mensaje-envio {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--paper-100);
+    background-color: var(--petrol-700);
+    border-left: 3px solid var(--alert-600);
+    padding: 10px 14px;
+    display: none;
+}
+
+.formulario__mensaje-envio.visible {
+    display: block;
+}
+
+.ficha-hospital {
+    background-color: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-l);
+    margin-bottom: var(--espacio-m);
+}
+
+.ficha-hospital h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--espacio-s);
+}
+
+.ficha-hospital p {
+    color: var(--grey-500);
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+}
+
+.ficha-hospital__aviso {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--alert-600);
+    border: 1px dashed var(--alert-600);
+    padding: 8px 10px;
+    border-radius: var(--radio-borde);
+    margin-top: var(--espacio-s);
+}
+
+.mapa-contenedor {
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    position: relative;
+}
+
+.mapa-contenedor iframe {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    display: block;
+    filter: grayscale(0.15) contrast(1.05);
+}
+
+
+/* ==================================================
+   10. MEDIA QUERIES - RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+    .tarjetas-navegacion {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grilla-personajes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .estadisticas__item {
+        flex: 1 1 45%;
+        border-right: none;
+        border-bottom: 1px solid var(--line-700);
+    }
+
+    .tarjeta-flip__frente-info{
+        display: flex;
+        align-items: center
+    }
+
+    .tarjeta-flip__frente img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    object-position: center top;
+    border-bottom: 1px solid var(--line-700);
+}
+
+    .hero {
+        min-height: 78vh;
+    }
+}
+
+
+/* ==================================================
+   ENFERMEDADES DESTACADAS - HOME
+================================================== */
+.enfermedades {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: var(--espacio-l);
+}
+
+.enfermedad {
+    display: grid;
+    grid-template-columns: 44px 1fr 28px;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 64px;
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--paper-100);
+    background: rgba(16, 41, 59, 0.72);
+    border: 1px solid var(--line-700);
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.enfermedad:hover, .enfermedad:focus-visible, .enfermedad.activo {
+    background: var(--petrol-700);
+    border-color: var(--alert-600);
+    transform: translateX(3px);
+}
+
+.enfermedad__numero {
+    font-family: var(--font-mono);
+    color: var(--alert-600);
+    font-size: .8rem;
+}
+
+.enfermedad__nombre {
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.enfermedad__flecha {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.enfermedad__detalle {
+    margin-top: var(--espacio-m);
+    padding: 24px;
+    min-height: 160px;
+    border-left: 3px solid var(--alert-600);
+    background: rgba(6, 14, 22, 0.55);
+}
+
+.enfermedad__detalle h3 {
+    margin: 8px 0;
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+}
+
+.enfermedad__detalle p {
+    max-width: 850px;
+    margin: 0 0 12px;
+}
+
+.enfermedad__episodio {
+    display: inline-block;
+    padding: 6px 9px;
+    color: var(--paper-100);
+    border: 1px solid var(--line-700);
+    font-family: var(--font-mono);
+    font-size: .78rem;
+}
+
+@media (max-width: 700px) {
+    .enfermedades {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --espacio-xl: 56px;
+        --espacio-l: 30px;
+    }
+
+    .encabezado__nav {
+        position: fixed;
+        top: 69px;
+        left: 0;
+        right: 0;
+        background-color: var(--petrol-800);
+        border-bottom: 3px solid var(--alert-600);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .encabezado__nav.abierto {
+        max-height: 320px;
+    }
+
+    .encabezado__lista {
+        flex-direction: column;
+        gap: 0;
+        padding: var(--espacio-s) 0;
+    }
+
+    .encabezado__lista a {
+        display: block;
+        padding: 14px var(--espacio-m);
+    }
+
+    .encabezado__hamburguesa {
+        display: flex;
+    }
+
+    .tarjetas-navegacion,
+    .grilla-personajes {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-flip {
+        height: 340px;
+    }
+    
+
+    .estadisticas__item {
+        flex: 1 1 100%;
+    }
+
+    .hero__acciones {
+        flex-direction: column;
+    }
+
+    .hero__acciones .boton {
+        justify-content: center;
+    }
+
+    .carrusel {
+        gap: var(--espacio-s);
+    }
+
+    .carrusel__flecha {
+        width: 38px;
+        height: 38px;
+        font-size: 1.05rem;
+    }
+
+    .ficha-temporada {
+        padding: var(--espacio-m);
+    }
+
+    .ficha-temporada__cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .visor {
+        padding: var(--espacio-m);
+    }
+
+    .pie__contenido {
+        flex-direction: column;
+    }
+
+    .pie__columna{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1 1 90px;
+    }
+
+    .pie__lista{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+
+    }
+
+    .pie__redes{
+        width: 50%;
+        justify-content:space-around;
+    }
+}
+
+/* ==================================================
+   MEJORAS DEL PROYECTO - SUBMENÚ, GALERÍA Y EPISODIOS
+================================================== */
+
+/* Submenú de segundo nivel */
+.menu-desplegable {
+    position: relative;
+}
+
+.flecha-menu {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 0.75em;
+    transition: transform 0.2s ease;
+}
+
+.menu-desplegable:hover .flecha-menu,
+.menu-desplegable.submenu-abierto .flecha-menu {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    min-width: 190px;
+    padding: 10px 8px 8px;
+    background: rgba(16, 41, 59, 0.98);
+    border: 1px solid var(--line-700);
+    border-top: 3px solid var(--alert-600);
+    border-radius: 0 0 var(--radio-borde) var(--radio-borde);
+    box-shadow: var(--sombra-panel);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 120;
+}
+
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--alert-600);
+}
+
+.menu-desplegable:hover > .submenu,
+.menu-desplegable:focus-within > .submenu,
+.menu-desplegable.submenu-abierto > .submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.encabezado__lista .submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.encabezado__lista .submenu li {
+    width: 100%;
+}
+
+.encabezado__lista .submenu a {
+    display: block;
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 3px;
+    color: var(--paper-100);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.encabezado__lista .submenu a::after {
+    display: none;
+}
+
+.encabezado__lista .submenu a:hover {
+    background: var(--petrol-700);
+    color: var(--paper-100);
+}
+
+/* Temporadas: listado completo */
+.episodios-destacados {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    max-height: 640px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.episodio {
+    min-width: 0;
+    min-height: 92px;
+    padding: 14px;
+    transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.episodio:hover {
+    border-color: var(--alert-600);
+    background-color: var(--petrol-800);
+    transform: translateY(-2px);
+}
+
+.episodio__titulo {
+    margin: 0;
+    line-height: 1.25;
+}
+
+.ficha-temporada__cabecera > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.carrusel__indicadores {
+    flex-wrap: wrap;
+}
+
+.carrusel__punto {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--line-700);
+    border-radius: 50%;
+    color: var(--grey-500);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--petrol-800);
+}
+
+.carrusel__punto.activo {
+    color: var(--paper-100);
+    border-color: var(--alert-600);
+    background-color: var(--alert-600);
+}
+
+/* Nueva galería */
+.galeria__encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+    padding: var(--espacio-m);
+    background: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    border-left: 3px solid var(--alert-600);
+}
+
+.galeria__encabezado p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--grey-500);
+}
+
+.galeria__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--espacio-m);
+}
+
+.galeria__item {
+    position: relative;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--line-700);
+    border-radius: var(--radio-borde);
+    background: var(--petrol-800);
+    text-align: left;
+    cursor: pointer;
+}
+
+.galeria__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.galeria__item:hover img,
+.galeria__item:focus-visible img {
+    transform: scale(1.06);
+    filter: brightness(0.62);
+}
+
+.galeria__overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 28px 14px 14px;
+    background: linear-gradient(transparent, rgba(6, 14, 22, 0.95));
+    color: var(--paper-100);
+    font-family: var(--font-display);
+    transform: translateY(2px);
+}
+
+.galeria__overlay small {
+    color: var(--alert-600);
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+    font-size: 0.68rem;
+}
+
+.galeria-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 80px;
+    background: rgba(6, 14, 22, 0.72);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.galeria-modal.abierto {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.galeria-modal__contenido {
+    width: min(980px, 88vw);
+    max-height: 90vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+    background: var(--petrol-800);
+    border: 1px solid var(--line-700);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+}
+
+.galeria-modal__imagen {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    max-height: 78vh;
+    object-fit: contain;
+    background: var(--navy-950);
+}
+
+.galeria-modal__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--espacio-l);
+    border-left: 1px solid var(--line-700);
+}
+
+.galeria-modal__titulo {
+    margin: 14px 0 10px;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.galeria-modal__texto {
+    color: var(--grey-500);
+}
+
+.galeria-modal__cerrar,
+.galeria-modal__anterior,
+.galeria-modal__siguiente {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--line-700);
+    border-radius: 50%;
+    background: rgba(16, 41, 59, 0.95);
+    color: var(--paper-100);
+    font-size: 2rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.galeria-modal__cerrar:hover,
+.galeria-modal__anterior:hover,
+.galeria-modal__siguiente:hover {
+    border-color: var(--alert-600);
+    background: var(--petrol-700);
+}
+
+.galeria-modal__cerrar {
+    top: 24px;
+    right: 24px;
+    font-size: 1.8rem;
+    z-index: 2;
+}
+
+.galeria-modal__anterior {
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.galeria-modal__siguiente {
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+    .episodios-destacados,
+    .galeria__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .galeria__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .galeria-modal {
+        padding: 60px 55px;
+    }
+
+    .galeria-modal__contenido {
+        grid-template-columns: 1fr;
+        width: min(720px, 92vw);
+        max-height: 88vh;
+        overflow-y: auto;
+    }
+
+    .galeria-modal__imagen {
+        min-height: 300px;
+        max-height: 55vh;
+    }
+
+    .galeria-modal__info {
+        border-left: none;
+        border-top: 1px solid var(--line-700);
+        padding: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .encabezado__nav.abierto {
+        max-height: 620px;
+        overflow-y: auto;
+    }
+
+    .menu-desplegable > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .submenu {
+        position: static;
+        width: auto;
+        min-width: 0;
+        margin: 0 var(--espacio-m) 8px;
+        padding: 4px;
+        transform: none;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: none;
+        border-top: 1px solid var(--line-700);
+        border-left: 2px solid var(--alert-600);
+        border-radius: 0;
+        transition: max-height 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .submenu::before {
+        display: none;
+    }
+
+    .menu-desplegable.submenu-abierto > .submenu {
+        transform: none;
+        max-height: 360px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .encabezado__lista .submenu a {
+        padding: 10px 14px;
+        background: rgba(6, 14, 22, 0.25);
+    }
+
+    .episodios-destacados {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-height: 620px;
+    }
+
+    .galeria__encabezado {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .galeria__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-modal {
+        padding: 55px 12px 20px;
+    }
+
+    .galeria-modal__contenido {
+        width: 100%;
+    }
+
+    .galeria-modal__imagen {
+        min-height: 230px;
+        max-height: 48vh;
+    }
+
+    .galeria-modal__cerrar {
+        top: 10px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .galeria-modal__anterior,
+    .galeria-modal__siguiente {
+        width: 42px;
+        height: 42px;
+        top: 43%;
+    }
+
+    .galeria-modal__anterior { left: 8px; }
+    .galeria-modal__siguiente { right: 8px; }
+}
+
+/* ==================================================
+   AJUSTES DE TRANSICIÓN Y EXPEDIENTES DE ENFERMEDADES
+================================================== */
+.carrusel__viewport {
+    transition: height 0.32s ease;
+}
+
+.carrusel__viewport--cambiando .ficha-temporada {
+    animation: entradaTemporada 0.32s ease both;
+}
+
+@keyframes entradaTemporada {
+    from {
+        opacity: 0.35;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.enfermedad-item {
+    min-width: 0;
+}
+
+.enfermedad-item .enfermedad__detalle {
+    margin-top: 8px;
+    min-height: 0;
+    padding: 20px;
+    border-left: 3px solid var(--alert-600);
+    border-top: 1px solid var(--line-700);
+    background: rgba(6, 14, 22, 0.55);
+}
+
+.enfermedad-item .enfermedad__detalle[hidden] {
+    display: none;
+}
+
+.enfermedad-item .enfermedad__detalle h3 {
+    margin: 8px 0;
+}
+
+.intro-seccion--secundaria {
+    margin-top: 10px;
+    color: var(--grey-500);
+}
+
+@media (max-width: 700px) {
+    .enfermedad-item .enfermedad__detalle {
+        padding: 18px;
+    }
+}

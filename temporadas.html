@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House M.D. | Temporadas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+    <header class="encabezado">
+        <div class="encabezado__barra">
+            <a href="index.html" class="encabezado__logo">
+                <img src="img/logo.svg" alt="Logo House M.D.">
+            </a>
+
+            <button class="encabezado__hamburguesa" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="encabezado__nav">
+                <ul class="encabezado__lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="menu-desplegable">
+                        <a href="temporadas.html" class="activo" aria-haspopup="true" aria-expanded="false">Temporadas <span class="flecha-menu">▾</span></a>
+                        <ul class="submenu" aria-label="Temporadas">
+                            <li><a href="temporadas.html?temporada=1">Temporada 1</a></li>
+                            <li><a href="temporadas.html?temporada=2">Temporada 2</a></li>
+                            <li><a href="temporadas.html?temporada=3">Temporada 3</a></li>
+                            <li><a href="temporadas.html?temporada=4">Temporada 4</a></li>
+                            <li><a href="temporadas.html?temporada=5">Temporada 5</a></li>
+                            <li><a href="temporadas.html?temporada=6">Temporada 6</a></li>
+                            <li><a href="temporadas.html?temporada=7">Temporada 7</a></li>
+                            <li><a href="temporadas.html?temporada=8">Temporada 8</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ==================================================
+         CABECERA DE PÁGINA
+    ================================================== -->
+    <section class="pagina-cabecera pagina-cabecera--temporadas">
+        <div class="contenedor">
+            <span class="etiqueta-mono">ARCHIVO CLÍNICO</span>
+            <h1 class="titulo-seccion" style="margin-top: 12px;">Temporadas</h1>
+            <p class="intro-seccion">
+                Un recorrido por las 8 temporadas de House M.D. Seleccioná una temporada
+                para consultar todos sus episodios.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ==================================================
+         CARRUSEL DE TEMPORADAS
+    ================================================== -->
+    <section class="seccion contenedor">
+        <div class="carrusel">
+            <button class="carrusel__flecha carrusel__flecha--anterior" aria-label="Temporada anterior">←</button>
+
+            <div class="carrusel__viewport">
+                <!-- El contenido de la temporada se genera dinámicamente con JavaScript -->
+            </div>
+
+            <button class="carrusel__flecha carrusel__flecha--siguiente" aria-label="Temporada siguiente">→</button>
+        </div>
+
+        <div class="carrusel__indicadores">
+            <!-- Los puntos indicadores se generan dinámicamente con JavaScript -->
+        </div>
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+    <footer class="pie">
+        <div class="contenedor pie__contenido">
+            <div class="pie__columna">
+                <h4 class="pie__titulo">MAPA DEL SITIO</h4>
+                <ul class="pie__lista">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="temporadas.html">Temporadas</a></li>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="pie__columna">
+                <h4 class="pie__titulo">SOBRE LA SERIE</h4>
+                <p>
+                    House M.D. narra el trabajo del Dr. Gregory House y su
+                    equipo de medicina diagnóstica en el Princeton-Plainsboro
+                    Teaching Hospital, un hospital ficticio en Princeton,
+                    Nueva Jersey.
+                </p>
+            </div>
+
+            <div class="pie__columna">
+                <h4 class="pie__titulo">REDES</h4>
+                <div class="pie__redes">
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.9L4.6 22H1.5l8.1-9.3L1 2h7l4.9 6.3L18.9 2Z"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.6a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8Zm4.9-3.4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.5-3.2h-3.2V8.7c0-.9.3-1.5 1.7-1.5h1.6V4.2C15.8 4 14.7 4 13.5 4c-2.6 0-4.4 1.6-4.4 4.4v2.4H6.5V14h2.6v8h4.4Z"/></svg></a>
+                    <a href="https://www.youtube.com/results?search_query=House+M.D." target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.1-.4-4.6a2.9 2.9 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.4a2.9 2.9 0 0 0-2 2C2 8.9 2 12 2 12s0 3.1.4 4.6a2.9 2.9 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.4a2.9 2.9 0 0 0 2-2C22 15.1 22 12 22 12ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie__inferior">
+            Proyecto académico sin fines comerciales — House M.D. pertenece a sus respectivos creadores.
+        </div>
+    </footer>
+
+    <script src="js/base.js"></script>
+</body>
+</html>
