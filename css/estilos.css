@@ -363,6 +363,11 @@ h1, h2, h3, h4 {
     background-position: center;
 }
 
+strong {
+    color: #ff7373;
+    font-weight: 700;
+}
+
 .hero::before {
     content: "";
     position: absolute;
